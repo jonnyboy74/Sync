@@ -255,7 +255,7 @@ class Import
      * Create product chunck
      *
      * @param array $args
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * @SuppressWarnings(PHPMD)
      */
     public function importProductCallback($args)
     {
@@ -301,6 +301,7 @@ class Import
 
     /**
      * Take an array from the product chunk and update/ create the product
+     * @SuppressWarnings(PHPMD)
      *
      * @param array $products
      */
