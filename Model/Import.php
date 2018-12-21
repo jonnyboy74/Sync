@@ -142,10 +142,13 @@ class Import
     {
         $this->logger->info("sync started  : ". date('H:i:s'));
         // download and import file data into the temp product table
+        $this->logger->info("== Importing products into temporary table ==");
         $this->importProductsIntoTmpTable();
         // delete excluded products set in system config.
+        $this->logger->info("== Deleting excluded products");
         $this->deleteExcludedProductsFromTmpTable();
         // check hash of the rows and delete if the products are the same
+        $this->logger->info("== Delete unchanged products from tmp table ==");
         $this->deleteUnchangedProductsFromTmpTable();
         // update the products
         $this->importProducts();
@@ -161,7 +164,6 @@ class Import
      */
     protected function importProductsIntoTmpTable()
     {
-        $this->logger->info("== Importing products into temporary table ==");
         $path = $this->getFile($this->config->getFtpFile());
         $query = sprintf(
             'LOAD DATA LOCAL INFILE "%s" REPLACE INTO TABLE %s FIELDS TERMINATED BY "|" LINES TERMINATED BY "\r\n" IGNORE 1 LINES (%s);',
@@ -186,7 +188,6 @@ class Import
      */
     protected function deleteExcludedProductsFromTmpTable()
     {
-        $this->logger->info("== Deleting excluded products");
         if ($this->config->getFtpExcludedSkus() != '') {
             $query = sprintf('DELETE FROM %1$s WHERE `sku` in ("%2$s")',
                 self::PRODUCTS_TMP_TABLE,
@@ -208,7 +209,6 @@ class Import
      */
     public function deleteUnchangedProductsFromTmpTable()
     {
-        $this->logger->info("== Delete unchanged products from tmp table ==");
         try {
             $joinCondition = sprintf('bicp.sku=bip.sku AND bicp.control_hash = %s',
                 $this->_getRowHashQuery('bip'));
@@ -541,7 +541,6 @@ class Import
      *    
      * @param string $tableAlias
      * @param string $resultAlias 
-     * @param string $entity          
      * @return string $rowHashQuery
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
