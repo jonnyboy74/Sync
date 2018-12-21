@@ -545,15 +545,10 @@ class Import
      * @return string $rowHashQuery
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    protected function _getRowHashQuery($tableAlias = null, $resultAlias = null, $entity = 'products')
+    protected function _getRowHashQuery($tableAlias = null, $resultAlias = null)
     {
         $rowHashColumns = $this->_getRowHashColumns($tableAlias, $entity);
-        if ($resultAlias) {
-            $rowHashQuery = sprintf('MD5(concat(%s)) AS %s', implode(',', $rowHashColumns), $resultAlias);
-        } else {
-            $rowHashQuery = sprintf('MD5(concat(%s))', implode(',', $rowHashColumns));
-        }
-
+        $rowHashQuery = sprintf('MD5(concat(%s)) AS %s', implode(',', $rowHashColumns), $resultAlias);
         return $rowHashQuery;
     }
 
