@@ -48,6 +48,7 @@ class UpgradeData implements UpgradeDataInterface
 
     /**
      * {@inheritdoc}
+     * @SuppressWarnings(PHPMD)
      */
     public function upgrade(
         ModuleDataSetupInterface $setup,

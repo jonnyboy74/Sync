@@ -43,6 +43,7 @@ class InstallSchema implements InstallSchemaInterface
 
     /**
      * Process the Sync Product table creation
+     * @SuppressWarnings(PHPMD)
      *
      * @param \Magento\Framework\Setup\SchemaSetupInterface $setup The Setup
      *

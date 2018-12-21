@@ -30,6 +30,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
     /**
      * {@inheritdoc}
+     * @SuppressWarnings(PHPMD)
      */
     public function upgrade(
         SchemaSetupInterface $setup,
