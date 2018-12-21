@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="sync" sortOrder="999" translate="label">
+			<label>Product Sync</label>
+		</tab>
+		<section id="inventory" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<label>Product Sync</label>
+			<tab>sync</tab>
+			<resource>Onlinepromo_Sync::config_onlinepromo_sync</resource>
+			<group id="sync" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<field id="ftp_host" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>FTP host</label>
+					<comment/>
+				</field>
+				<field id="ftp_user" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>FTP user</label>
+					<comment/>
+				</field>
+				<field id="ftp_password" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="obscure">
+					<label>FTP password</label>
+					<comment/>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+					<config_path>inventory/sync/ftp_password</config_path>
+				</field>
+				<field id="ftp_file" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="text">
+					<label>Product file</label>
+					<comment/>
+				</field>
+				<field id="ftp_excuded_skus" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="text">
+					<label>Excuded skus</label>
+					<comment/>
+				</field>
+				<field id="import_products_pagination_limit" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="70" translate="label" type="text">
+					<label>Products Pagination Limit</label>
+					<comment/>
+				</field>
+				<field id="import_stock_pagination_limit" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="80" translate="label" type="text">
+					<label>Stock Pagination Limit</label>
+					<comment/>
+				</field>
+				<field id="default_description" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label" type="text">
+					<label>Default Description For Products</label>
+					<comment/>
+				</field>
+				<field id="default_package_contents" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label" type="text">
+					<label>Default Package Contents For Products</label>
+					<comment/>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

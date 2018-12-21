@@ -1,0 +1,24 @@
+{
+    "name": "onlinepromo/module-sync",
+    "description": "Module to import/update products",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "email": "jonnypark74@googlemail.com",
+            "name": "NavaFor Life"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "nicolab/php-ftp-client": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Onlinepromo\\Sync\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+	<group id="default">
+		<job instance="Onlinepromo\Sync\Cron\Sync" method="execute" name="onlinepromo_sync_sync">
+			<schedule>0 * * * *</schedule>
+		</job>
+	</group>
+</config>
